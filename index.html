@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Chúc Mừng 20/10 - Gửi Mẹ Yêu 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink-deep:#c2185b;
+    --pink-mid:#e91e63;
+    --ink:#4a323b;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  html, body{ overflow-x:hidden; }
+
+  body{
+    font-family:'Quicksand', sans-serif;
+    color:var(--ink);
+    background:linear-gradient(180deg,#fff8fb 0%, #ffecf3 30%, #ffdce9 70%, #ffc9de 100%);
+    background-attachment:fixed;
+    position: relative;
+  }
+
+  /* ============ TRÁI TIM ĐẬP NỀN ============ */
+  .bg-heart {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(80vw, 80vh);
+    height: min(80vw, 80vh);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.15;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 40px rgba(255, 77, 132, 0.6));
+  }
+
+  .bg-heart svg {
+    width: 100%;
+    height: 100%;
+    fill: #ff4d84;
+  }
+
+  @keyframes heartbeat {
+    0%   { transform: translate(-50%, -50%) scale(1); }
+    14%  { transform: translate(-50%, -50%) scale(1.08); }
+    28%  { transform: translate(-50%, -50%) scale(1); }
+    42%  { transform: translate(-50%, -50%) scale(1.08); }
+    70%  { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+  }
+
+  /* ============ NÚT BẬT/TẮT NHẠC ============ */
+  .music-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
+    border: 2px solid #ffb3d1;
+    transition: all 0.3s ease;
+  }
+  
+  .music-btn:hover {
+    transform: scale(1.1);
+    background: #fff;
+  }
+
+  /* Hiệu ứng khi nhạc đang phát */
+  .music-btn.playing {
+    animation: pulseMusic 1.5s infinite;
+    background: #ffe4ee;
+  }
+  
+  @keyframes pulseMusic {
+    0% { box-shadow: 0 0 0 0 rgba(233, 30, 99, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(233, 30, 99, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(233, 30, 99, 0); }
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    min-height: 85vh; 
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 24px;
+    position:relative;
+    z-index: 1;
+  }
+  .hero h1{
+    font-family:'Dancing Script', cursive;
+    font-size:clamp(3rem, 10vw, 6rem);
+    color:var(--pink-deep);
+    line-height:1.08;
+    text-shadow:0 6px 30px rgba(255,255,255,0.8);
+    animation:fadeUp 1s ease both;
+  }
+  .hero .sub{
+    margin-top:18px;
+    font-size:clamp(1rem, 2.6vw, 1.2rem);
+    font-weight:600;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--pink-mid);
+    opacity:0.85;
+    animation:fadeUp 1s ease 0.2s both;
+    text-shadow:0 2px 10px rgba(255,255,255,0.8);
+  }
+  .hero .scroll-hint{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:0.95rem;
+    font-weight:600;
+    color:var(--pink-deep);
+    letter-spacing:0.08em;
+    animation:fadeUp 1s ease 0.4s both, floatY 2s ease-in-out 1.5s infinite;
+    white-space:nowrap;
+  }
+  .hero .scroll-hint span{ display:block; font-size:1.4rem; margin-top:4px; }
+  @keyframes fadeUp{ from{ opacity:0; transform:translateY(30px); } to{ opacity:1; transform:translateY(0); } }
+  @keyframes floatY{ 0%,100%{ transform:translateX(-50%) translateY(0); } 50%{ transform:translateX(-50%) translateY(10px); } }
+
+  /* ============ BÔNG HỒNG CSS ============ */
+  .flower{
+    --size:140px;
+    position:relative;
+    width:var(--size);
+    height:var(--size);
+    flex-shrink:0;
+  }
+  .flower .rot{
+    position:absolute;
+    inset:0;
+    transform:rotate(calc(var(--i) * 60deg));
+  }
+  .flower .petal{
+    position:absolute;
+    left:50%; top:0;
+    width:calc(var(--size) * 0.36);
+    height:calc(var(--size) * 0.48);
+    margin-left:calc(var(--size) * -0.18);
+    transform-origin:50% 100%;
+    background:radial-gradient(circle at 50% 88%, #fff0f6 0%, #ffa8c8 42%, #ff4d84 100%);
+    border-radius:50% 50% 45% 45% / 68% 68% 32% 32%;
+    box-shadow:inset 0 -6px 12px rgba(190,0,70,0.18);
+    transform:scale(0);
+    will-change: transform;
+  }
+  .flower .core{
+    position:absolute;
+    left:50%; top:50%;
+    width:30%; height:30%;
+    margin:-15% 0 0 -15%;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 32%, #fff6c2, #ffc93c 55%, #f59e0b 100%);
+    box-shadow:0 0 18px rgba(255,200,60,0.85);
+    transform:scale(0);
+    will-change: transform;
+  }
+
+  /* ============ BÔNG HOA BAY ============ */
+  .main-flower{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), top 0.8s ease;
+    will-change: left, top;
+  }
+  .main-flower .flower{ 
+    --size: 180px; 
+    filter: drop-shadow(0 15px 30px rgba(216,27,96,0.4)); 
+  }
+  .main-flower .flower .petal{
+    box-shadow: inset 0 -6px 12px rgba(190,0,70,0.22), 0 0 25px rgba(255,80,140,0.5);
+  }
+
+  /* ============ CÁC KHỐI LỜI CHÚC ============ */
+  .journey{
+    position:relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .wish-section {
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .wish{
+    position: absolute;
+    width: min(460px, 42%); 
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-radius:22px;
+    padding:26px 34px;
+    box-shadow:0 16px 40px rgba(216,27,96,0.18);
+    border:1px solid rgba(255,255,255,0.95);
+    
+    opacity:0;
+    transform:translateY(40px) scale(0.95) rotate(var(--rot, 0deg));
+    transition:opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.32, 0.64, 1);
+    z-index: 9;
+  }
+  
+  .wish.show {
+    opacity: 1;
+    transform:translateY(0) scale(1) rotate(var(--rot, 0deg));
+  }
+
+  .wish.pos-right { right: 5%; }
+  .wish.pos-left { left: 5%; }
+  
+  .wish .icon{
+    width:48px; height:48px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.5rem;
+    background:linear-gradient(135deg,#ffe4ee,#ffc2d9);
+    box-shadow:0 6px 16px rgba(216,27,96,0.2);
+    margin-bottom:14px;
+  }
+  .wish p{ font-size:1.08rem; line-height:1.85; color:#4a323b; }
+  .wish p strong{ color:var(--pink-deep); }
+
+  /* ============ FINALE ============ */
+  .finale{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:60px 24px;
+    position:relative;
+    z-index:3;
+  }
+  .finale h2{
+    font-family:'Dancing Script', cursive;
+    font-size:clamp(2.8rem, 9vw, 5rem);
+    color:var(--pink-deep);
+    text-shadow:0 6px 30px rgba(255,255,255,0.9);
+    line-height:1.15;
+  }
+  .finale p{ margin-top:16px; font-size:clamp(1rem, 2.5vw, 1.2rem); color:#7a4b5c; font-weight:600; letter-spacing:0.05em; }
+  .finale .sign{ margin-top:26px; font-family:'Dancing Script', cursive; font-size:clamp(1.5rem, 4vw, 2rem); color:var(--pink-mid); }
+
+  /* ============ MƯA ICON RƠI ============ */
+  .falling-icon{
+    position:fixed;
+    top:-60px;
+    z-index:100;
+    pointer-events:none;
+    animation:iconFall linear infinite;
+    will-change:transform;
+  }
+  @keyframes iconFall{
+    0%{ transform:translateY(0) rotate(0deg); opacity:0; }
+    10%{ opacity:1; }
+    100%{ transform:translateY(115vh) rotate(400deg); opacity:0.7; }
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 768px){
+    .main-flower .flower{ --size: 130px; }
+    .wish{ 
+      width: 85%; 
+      left: 7.5% !important; 
+      right: auto !important;
+      padding: 22px 24px;
+    }
+    .wish p{ font-size:0.97rem; line-height:1.75; }
+    .bg-heart { width: 120vw; height: 120vw; }
+    .music-btn { top: 15px; right: 15px; width: 45px; height: 45px; font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NHẠC NỀN: đặt file nhac-nen.mp3 cùng thư mục với index.html -->
+<audio id="bgMusic" loop preload="none">
+  <source src="./nhac-nen.mp3" type="audio/mpeg">
+  Trình duyệt của bạn không hỗ trợ phát âm thanh.
+</audio>
+
+<!-- NÚT ĐIỀU KHIỂN NHẠC -->
+<div class="music-btn" id="musicBtn" title="Bật/Tắt nhạc">🎵</div>
+
+<!-- TRÁI TIM ĐẬP Ở NỀN -->
+<div class="bg-heart">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</div>
+
+<header class="hero">
+  <h1>Chúc Mừng 20/10</h1>
+  <p class="sub">Gửi đến người phụ nữ tuyệt vời nhất</p>
+  <div class="scroll-hint">
+    Lướt xuống nhé mẹ ơi
+    <span>⌄</span>
+  </div>
+</header>
+
+<!-- BÔNG HOA NEO CỐ ĐỊNH -->
+<div class="main-flower" id="mainFlower">
+  <div class="flower" id="mainFlowerInner"></div>
+</div>
+
+<section class="journey" id="journey">
+  
+  <div class="wish-section" data-pos="right">
+    <div class="wish pos-right" style="--rot: 6deg;">
+      <div class="icon">🌸</div>
+      <p>Mẹ ơi, con cảm ơn mẹ vì đã sinh con ra trên đời này. Được làm <strong>con của mẹ</strong> là điều may mắn nhất.</p>
+    </div>
+  </div>
+
+  <div class="wish-section" data-pos="left">
+    <div class="wish pos-left" style="--rot: -6deg;">
+      <div class="icon">💗</div>
+      <p>Cảm ơn mẹ đã <strong>thức trắng bao đêm</strong> khi con ốm, nhịn phần ngon để dành cho con. Con vẫn nhớ mãi.</p>
+    </div>
+  </div>
+
+  <div class="wish-section" data-pos="right">
+    <div class="wish pos-right" style="--rot: 5deg;">
+      <div class="icon">🌷</div>
+      <p>Cảm ơn mẹ đã luôn tin con, kể cả khi cả thế giới quay lưng. Mẹ luôn nói: <strong>"Con làm được mà."</strong></p>
+    </div>
+  </div>
+
+  <div class="wish-section" data-pos="left">
+    <div class="wish pos-left" style="--rot: -7deg;">
+      <div class="icon">🌹</div>
+      <p>Cảm ơn những <strong>bữa cơm mẹ nấu</strong>, những cuộc gọi chỉ để hỏi: "Con ăn cơm chưa?" - nhỏ thôi mà ấm cả lòng.</p>
+    </div>
+  </div>
+
+  <div class="wish-section" data-pos="right">
+    <div class="wish pos-right" style="--rot: 6deg;">
+      <div class="icon">💌</div>
+      <p>Nhân ngày 20/10, con chúc mẹ luôn <strong>mạnh khỏe, vui vẻ và hạnh phúc</strong>. Con yêu mẹ nhiều hơn mọi lời con có thể nói.</p>
+    </div>
+  </div>
+
+</section>
+
+<section class="finale" id="finale">
+  <h2>Con Yêu Mẹ!</h2>
+  <p>Chúc mừng Ngày Phụ nữ Việt Nam 20/10</p>
+  <div class="sign">— Con của mẹ —</div>
+</section>
+
+<script>
+  /* ==========================================
+     ĐIỀU KHIỂN NHẠC NỀN
+     Chỉ phát khi người xem bấm nút 🎵
+     ========================================== */
+  const bgMusic = document.getElementById('bgMusic');
+  const musicBtn = document.getElementById('musicBtn');
+
+  // Âm lượng mặc định 35%.
+  bgMusic.volume = 0.35;
+
+  function updateMusicButton(playing) {
+    if (playing) {
+      musicBtn.classList.add('playing');
+      musicBtn.innerHTML = '🎶';
+      musicBtn.title = 'Tắt nhạc';
+      musicBtn.setAttribute('aria-label', 'Tắt nhạc');
+    } else {
+      musicBtn.classList.remove('playing');
+      musicBtn.innerHTML = '🎵';
+      musicBtn.title = 'Bật nhạc';
+      musicBtn.setAttribute('aria-label', 'Bật nhạc');
+    }
+  }
+
+  // Chỉ nút nhạc mới có thể bắt đầu phát âm thanh.
+  musicBtn.addEventListener('click', async (event) => {
+    event.stopPropagation();
+
+    if (!bgMusic.paused) {
+      bgMusic.pause();
+      return;
+    }
+
+    try {
+      await bgMusic.play();
+    } catch (error) {
+      console.error('Không phát được nhạc. Hãy kiểm tra file nhac-nen.mp3:', error);
+      updateMusicButton(false);
+      alert('Không phát được nhạc. Hãy kiểm tra xem file nhac-nen.mp3 đã được tải lên cùng thư mục với index.html chưa và tên file có đúng không.');
+    }
+  });
+
+  // Đồng bộ biểu tượng với trạng thái phát/dừng thực tế.
+  bgMusic.addEventListener('play', () => updateMusicButton(true));
+  bgMusic.addEventListener('pause', () => updateMusicButton(false));
+  bgMusic.addEventListener('ended', () => updateMusicButton(false));
+
+  // Khi mở trang, nhạc chưa phát.
+  updateMusicButton(false);
+
+  /* ==========================================
+     LOGIC HIỆU ỨNG BÔNG HOA & LỜI CHÚC
+     ========================================== */
+  function buildFlower(el){
+    let html = '';
+    for (let i = 0; i < 6; i++){
+      html += '<span class="rot" style="--i:' + i + '"><span class="petal"></span></span>';
+    }
+    html += '<span class="core"></span>';
+    el.innerHTML = html;
+  }
+
+  const mainFlower = document.getElementById('mainFlower');
+  const mainFlowerInner = document.getElementById('mainFlowerInner');
+  const wishElements = document.querySelectorAll('.wish');
+  const wishSections = document.querySelectorAll('.wish-section');
+  
+  buildFlower(mainFlowerInner);
+  const mainPetals = mainFlowerInner.querySelectorAll('.petal');
+  const mainCore = mainFlowerInner.querySelector('.core');
+
+  let ticking = false;
+
+  function update() {
+    const vh = window.innerHeight;
+    let activeSection = null;
+    let minDistance = Infinity;
+
+    wishSections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      const sectionCenter = rect.top + rect.height / 2;
+      const screenCenter = vh / 2;
+      const distance = Math.abs(screenCenter - sectionCenter);
+
+      if (rect.top < vh && rect.bottom > 0) {
+        if (distance < minDistance) {
+          minDistance = distance;
+          activeSection = sec;
+        }
+      }
+    });
+
+    if (activeSection && minDistance < vh * 0.4) {
+      const pos = activeSection.getAttribute('data-pos');
+      if (pos === 'right') {
+        mainFlower.style.left = '28%'; 
+      } else {
+        mainFlower.style.left = '72%'; 
+      }
+      mainFlower.style.top = '50%';
+    } else {
+      mainFlower.style.left = '50%';
+      mainFlower.style.top = '50%';
+    }
+
+    // Hiệu ứng nở hoa
+    let scrollY = window.scrollY;
+    let bloomProgress = scrollY / 400; 
+    bloomProgress = Math.max(0, Math.min(1, bloomProgress));
+
+    let coreScale = Math.min(1, bloomProgress / 0.2);
+    mainCore.style.transform = `scale(${coreScale})`;
+
+    mainPetals.forEach((petal, index) => {
+      let delay = index * 0.1; 
+      let pT = (bloomProgress - delay) / (1 - delay);
+      pT = Math.max(0, Math.min(1, pT));
+      let eased = 1 - Math.pow(1 - pT, 3);
+      petal.style.transform = `scale(${eased})`;
+    });
+
+    // Hiển thị lời chúc
+    wishElements.forEach((wish) => {
+      const rect = wish.getBoundingClientRect();
+      if (rect.top < vh * 0.75 && rect.bottom > vh * 0.25) {
+        wish.classList.add('show');
+      } else {
+        wish.classList.remove('show');
+      }
+    });
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+
+  /* ---- Mưa icon cuối trang ---- */
+  const finale = document.getElementById('finale');
+  const iconPool = ['🌸','🌷','🌺','💮','🏵️','💐','🌹','💕','💖','💗'];
+  let fallingInterval = null;
+  let isFinaleVisible = false;
+
+  function spawnIcon() {
+    const el = document.createElement('div');
+    el.className = 'falling-icon';
+    el.textContent = iconPool[Math.floor(Math.random() * iconPool.length)];
+    el.style.left = Math.random() * 100 + 'vw';
+    el.style.fontSize = (16 + Math.random() * 24) + 'px';
+    el.style.animationDuration = (4 + Math.random() * 5) + 's';
+    el.style.animationDelay = (Math.random() * 2) + 's';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 12000);
+  }
+
+  function startFalling() {
+    if (fallingInterval) return;
+    for (let i = 0; i < 15; i++) spawnIcon();
+    fallingInterval = setInterval(() => {
+      for (let i = 0; i < 4; i++) spawnIcon();
+    }, 500);
+  }
+
+  function stopFalling() {
+    if (fallingInterval) {
+      clearInterval(fallingInterval);
+      fallingInterval = null;
+    }
+    document.querySelectorAll('.falling-icon').forEach(el => el.remove());
+  }
+
+  const finaleObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        if (!isFinaleVisible) { isFinaleVisible = true; startFalling(); }
+      } else {
+        if (isFinaleVisible) { isFinaleVisible = false; stopFalling(); }
+      }
+    });
+  }, { threshold: 0.3 });
+
+  finaleObserver.observe(finale);
+</script>
+</body>
+</html>
